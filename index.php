@@ -63,24 +63,24 @@
 
 <body>
 
-<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
-
 	<header>
-		
-		<h1><a href="/">TheDatR</a></h1>
+		<div id="head_content">
+		<h1><a href="/">WeeBlackBook</a></h1>
 		
 		<nav>
 		
-			<ol>
+			<ul id="menu">
 				<li><a href="">What is this?</a></li>
 				<li><a href="">How does it work?</a></li>
-				<li><a href="">Login</a></li>
-			</ol>
+				<li><a href="">Costs?</a></li>
+				<li><a href="">Login/Register</a></li>
+			</ul>
 		
 		</nav>
-	
+		</div>
 	</header>
 	
+<div class="wrapper"><!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
 <!--	
 	<article>
 		
@@ -209,18 +209,23 @@ function add_record(){
 	person_conversion_confidence = $('#person_conversion_confidence').val();
 	
 	// adding a row to the main table
-	$('#pipeline_table > tbody:last').append('<tr><td>'
+	$('#pipeline_table > tbody:last').append('<tr><td id="person_name">'
 		+person_name
-		+'</td><td>'
+		+'</td><td id="person_score">'
 		+person_score
-		+'</td><td>'
+		+'</td><td id="person_progress">'
 		+person_progress
-		+'</td><td>'
+		+'</td><td id="person_conversion_confidence">'
 		+person_conversion_confidence
-		+'</td><td><a href=\'#\' onclick=\'removeClosest(this);\'>(-)</a></td></tr>');
+		+'</td><td><a href=\'#\' onclick=\'removeClosest(this);\'>Del</a> </td>'
+		+'<td><a href="#" onclick=\'editClosest(this);\'>Edit</a></td></tr>'
+		);
 }
 function removeClosest(a) {
 	$(a).closest('tr').remove();
+}
+function editClosest(a) {
+	alert($(a).closest('tr').val());
 }
 </script>
   
